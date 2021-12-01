@@ -44,11 +44,12 @@ TreeList* encoding(string &str)
     return pq.top();
 }
 
+map< char , string > encoded_value;
 void print_path(TreeList* root, string value)
 {
     if(root->left==NULL && root->right==NULL)
     {
-        cout << root->c << ": " << value << "\n";
+        encoded_value[root->c] = value;
         return;
     }
     if(root->left)
