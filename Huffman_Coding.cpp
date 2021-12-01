@@ -45,11 +45,14 @@ TreeList* encoding(string &str)
 }
 
 map< char , string > encoded_value;
+map< string , char > encode_to_character;
+
 void print_path(TreeList* root, string value)
 {
     if(root->left==NULL && root->right==NULL)
     {
         encoded_value[root->c] = value;
+        encode_to_character[value] = root->c;
         return;
     }
     if(root->left)
