@@ -79,5 +79,19 @@ int main()
     }
     cout << encoded_message << "\n";
 
+    string decoded_message = "";
+    string temp = "";
+    for(char c : encoded_message)
+    {
+        temp+=c;
+        if(encode_to_character.find(temp)!=encode_to_character.end())
+        {
+            decoded_message+=encode_to_character[temp];
+            temp = "";
+        }
+    }
+    cout << "Decoded Message: ";
+    cout << decoded_message << "\n";
+
     return 0;
 }
