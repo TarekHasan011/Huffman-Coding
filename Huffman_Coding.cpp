@@ -65,5 +65,16 @@ int main()
     string str; cin >> str;
     TreeList* root = encoding(str);
     print_path(root,"");
+    for(auto x : encoded_value)
+        cout << x.first << " " << x.second << endl;
+    cout << "Original Message: " << str << "\n";
+    cout << "Encoded Message: ";
+    string encoded_message = "";
+    for(char c : str)
+    {
+        encoded_message+=encoded_value[c];
+    }
+    cout << encoded_message << "\n";
+
     return 0;
 }
