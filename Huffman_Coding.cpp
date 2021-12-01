@@ -44,12 +44,25 @@ TreeList* encoding(string &str)
     return pq.top();
 }
 
+void print_path(TreeList* root, string value)
+{
+    if(root->left==NULL && root->right==NULL)
+    {
+        cout << root->c << ": " << value << "\n";
+        return;
+    }
+    if(root->left)
+        print_path(root->left,value+"0");
+    if(root->right)
+        print_path(root->right,value+"1");
+}
 int main()
 {
     #ifdef TarekHasan
         freopen("input.txt","r",stdin);
     #endif // TarekHasan
     string str; cin >> str;
-    encoding(str);
+    TreeList* root = encoding(str);
+    print_path(root,"");
     return 0;
 }
